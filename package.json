@@ -1,0 +1,23 @@
+{
+  "name": "gympass-apii",
+  "description": "GymPass style app API.",
+  "version": "1.0.0",
+  "author": "Leonardo D. Lissone Santomero <leonardo.lissonez@gmail.com>",
+  "keywords": [],
+  "license": "ISC",
+  "main": "src/server.ts",
+  "scripts": {
+    "start:dev": "tsx watch .",
+    "start": "node build/server.js",
+    "build": "tsup src --out-dir build"
+  },
+  "devDependencies": {
+    "@types/node": "18.14.1",
+    "tsup": "6.6.3",
+    "tsx": "3.12.3",
+    "typescript": "4.9.5"
+  },
+  "dependencies": {
+    "fastify": "4.13.0"
+  }
+}
