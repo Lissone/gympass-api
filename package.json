@@ -9,7 +9,9 @@
   "scripts": {
     "start:dev": "tsx watch src/server.ts",
     "start": "node build/server.js",
-    "build": "tsup src --out-dir build"
+    "build": "tsup src --out-dir build",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "devDependencies": {
     "@rocketseat/eslint-config": "1.2.0",
@@ -19,7 +21,9 @@
     "prisma": "5.13.0",
     "tsup": "6.6.3",
     "tsx": "3.12.3",
-    "typescript": "4.9.5"
+    "typescript": "4.9.5",
+    "vite-tsconfig-paths": "4.3.2",
+    "vitest": "1.5.3"
   },
   "dependencies": {
     "@prisma/client": "5.13.0",
