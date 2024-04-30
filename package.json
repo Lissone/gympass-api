@@ -11,12 +11,14 @@
     "start": "node build/server.js",
     "build": "tsup src --out-dir build",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage"
   },
   "devDependencies": {
     "@rocketseat/eslint-config": "1.2.0",
     "@types/bcryptjs": "2.4.6",
     "@types/node": "18.14.1",
+    "@vitest/coverage-v8": "1.5.3",
     "eslint": "8.34.0",
     "prisma": "5.13.0",
     "tsup": "6.6.3",
