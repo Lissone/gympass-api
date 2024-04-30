@@ -1,5 +1,40 @@
-import { expect, test } from 'vitest';
+import { expect, describe, it } from 'vitest';
+import { compare } from 'bcryptjs';
 
-test('check if it works', () => {
-  expect(2 + 2).toBe(4);
+import { RegisterUseCase } from './register';
+
+// TESTES UNITÁRIOS NÃO PRECISAM E NÃO DEVEM BATER NO DB
+describe('Register Use Case', () => {
+  it('should hash user password upon registration', async () => {
+    // objeto que imita UserRepository
+    // => só é possível por conta da inversão de dependência
+    const registerUseCase = new RegisterUseCase({
+      async findByEmail(email) {
+        return null;
+      },
+
+      async create(data) {
+        return {
+          id: 'user-1',
+          name: data.name,
+          email: data.email,
+          password_hash: data.password_hash,
+          created_at: new Date(),
+        };
+      },
+    });
+
+    const { user } = await registerUseCase.execute({
+      name: 'John Doe',
+      email: 'johndoe@example.com',
+      password: '123456',
+    });
+
+    const isPasswordCorrectlyHashed = await compare(
+      '123456',
+      user.password_hash
+    );
+
+    expect(isPasswordCorrectlyHashed).toBe(true);
+  });
 });
