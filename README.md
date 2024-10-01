@@ -1,5 +1,5 @@
 <h1 align="center">
-  GymPass API style app
+  GymPass style app API
 </h1>
 
 <p align="center">
